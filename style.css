@@ -1,151 +1,142 @@
-/* Configurações Globais (Zera margens padrão do navegador) */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* --- Estilos Gerais --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f7f6;
+    background-color: #c8dfe7; /* Fundo cinza claro suave */
     color: #333;
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    margin: 0;
+    padding: 20px;
 }
 
-/* Container para alinhar e limitar a largura do conteúdo */
 .container {
-    width: 90%;
     max-width: 800px;
     margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra suave no container principal */
 }
 
-/* Estilização do Cabeçalho com Animação */
+/* --- Estilos do Cabeçalho (Com fundo branco e bordas arredondadas) --- */
 header {
-    background-color: #1e1e24;
-    color: #fff;
-    padding: 60px 0;
     text-align: center;
-    border-bottom: 4px solid #00adb5;
-    animation: fadeInDown 0.8s ease-out;
+    margin-bottom: 30px;
+    background: #ffffff;        /* Fundo branco igual ao container */
+    padding: 30px;                /* Espaçamento interno */
+    border-radius: 8px;           /* Bordas arredondadas */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Sombra suave */
+    max-width: 800px;             /* Mantém a mesma largura máxima */
+    margin-left: auto;            /* Centraliza na tela */
+    margin-right: auto;           /* Centraliza na tela */
 }
 
-header h1 {
-    font-size: 42px;
+h1 {
+    font-size: 2.5em;
     margin-bottom: 10px;
 }
 
-header p {
-    font-size: 18px;
-    color: #00adb5;
-    font-weight: bold;
+/* --- Linha divisória do Cabeçalho --- */
+.linha-cabecalho {
+    width: 300px;               /* Largura da linha */
+    height: 3px;               /* Espessura da linha */
+    background-color: #17a2b8; /* A mesma cor azul/ciano usada nos títulos h2[cite: 1] */
+    margin: 0 auto 15px auto;  /* Centraliza a linha e dá espaço para o texto abaixo */
+    border-radius: 2px;        /* Deixa as pontas levemente arredondadas */
 }
 
-/* Estilização do Conteúdo Principal */
-main {
-    padding: 40px 0;
+h2 {
+    border-left: 5px solid #17a2b8; /* Barra lateral ciano[cite: 1] */
+    padding-left: 15px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
-section {
-    background: #fff;
-    padding: 30px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    animation: fadeInUp 0.8s ease-out;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-section:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
-}
-
-section h2 {
-    color: #1e1e24;
-    margin-bottom: 15px;
-    border-left: 5px solid #00adb5;
-    padding-left: 10px;
-}
-
-/* Lista de Integrantes */
-ul {
+/* --- Estilos da Lista de Integrantes --- */
+.lista-integrantes {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-ul li {
-    background: #f4f7f6;
-    margin: 8px 0;
-    padding: 12px 15px;
-    border-radius: 4px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: default;
+/* O Card que contém o nome e o botão oculto */
+.integrante-card {
+    background: #ffffff; /* Fundo branco do item */
+    border-bottom: 1px solid #e1e8ed; /* Linha divisória sutil entre itens */
+    overflow: hidden; /* Essencial para esconder o botão */
+    transition: background-color 0.3s ease;
 }
 
-ul li:hover {
-    background: #e2e8e7;
-    transform: translateX(5px);
-    color: #00adb5;
+/* A primeira linha (o nome) */
+.integrante-nome {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between; /* Para alinhar nome e ícone */
 }
 
-/* Botões de Redes Sociais */
+/* Efeito hover no card inteiro */
+.integrante-card:hover {
+    background-color: #f8fbfb; /* Um hover bem suave */
+}
+
+/* O container do botão (inicialmente escondido) */
+.integrante-conteudo {
+    max-height: 0; /* Altura zero para ocultar */
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    background-color: #e0f7fa; /* Fundo azul clarinho quando expande */
+    text-align: center;
+    padding: 0 20px; /* Padding vertical 0 quando fechado */
+}
+
+/* O efeito hover que faz o conteúdo aparecer */
+.integrante-card:hover .integrante-conteudo {
+    max-height: 60px; /* Altura suficiente para mostrar o botão */
+    padding: 15px 20px; /* Adiciona padding vertical de volta */
+}
+
+/* Estilização do botão do Instagram */
+.btn-instagram {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #E1306C; /* Cor do Instagram */
+    color: white;
+    text-decoration: none;
+    border-radius: 20px; /* Botão bem arredondado */
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-instagram:hover {
+    background-color: #C13584; /* Cor mais escura no hover */
+    transform: translateY(-2px); /* Leve pulinho para cima */
+}
+
+/* --- Estilos da seção de Contato --- */
 .botoes-redes {
     display: flex;
     gap: 15px;
-    margin-top: 15px;
-    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .botao {
-    display: inline-block;
-    background-color: #1e1e24;
-    color: #fff;
-    padding: 12px 24px;
+    padding: 10px 20px;
+    background-color: #17a2b8;
+    color: white;
     text-decoration: none;
     border-radius: 5px;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .botao:hover {
-    background-color: #00adb5;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 173, 181, 0.3);
+    background-color: #afe9f1;
 }
 
-/* Rodapé */
 footer {
     text-align: center;
-    padding: 30px 0;
+    margin-top: 40px;
+    font-size: 0.9em;
     color: #777;
-    font-size: 14px;
-    background-color: #fff;
-    border-top: 1px solid #eaeaea;
-}
-
-/* Keyframes de Animação */
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
